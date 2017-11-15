@@ -33,6 +33,12 @@ img{max-width:100%;}
 background-color: white;
 }
 
+.title {
+	color: pink;
+	font-family: 'Lobster', sans-serif;
+}
+
+
 #signupTitle {
 	color: pink;
 	font-family: 'Lobster', sans-serif;
