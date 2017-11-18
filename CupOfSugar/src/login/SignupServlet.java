@@ -29,8 +29,8 @@ public class SignupServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String homeaddr = request.getParameter("homeaddr");
 		String stateid = request.getParameter("stateid");
-		int cell = Integer.parseInt(request.getParameter("cellphone"));
-		int zipcode = Integer.parseInt(request.getParameter("zipcode"));
+		int cell = strToInt(request.getParameter("cellphone"));
+		int zipcode = strToInt(request.getParameter("zipcode"));
 		
 		
 		
@@ -47,4 +47,9 @@ public class SignupServlet extends HttpServlet {
 		out.close();
 	}
 
+	
+	public int strToInt(String str) {
+		return Integer.parseInt(str);
+	}
 }
+

@@ -9,6 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class LoggedInServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1988453544156025722L;
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
