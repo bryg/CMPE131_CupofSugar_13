@@ -13,7 +13,7 @@ public class RequestDao {
 			//getting connection from the mysql database
 			//jdbc:mysql://localhost:3306 is database url
 			//login is database name
-			//root : username
+			//root : username       
 			//root: password
 			//syntex : databaseurl/databasename, username , password
 			Connection con = DriverManager.getConnection(
