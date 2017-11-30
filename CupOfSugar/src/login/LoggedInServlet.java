@@ -21,9 +21,24 @@ public class LoggedInServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		String n=request.getParameter("username");
-		out.print("Welcome "+n);
+		Integer userID = (Integer) request.getSession().getAttribute("userID");
+		out.print("Welcome "+ n + ". Your ID = " + userID);
 		
 		out.close();
 	}
+	
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+		      throws ServletException, IOException {
+
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
+		Integer userID = (Integer) request.getSession().getAttribute("userID");
+		out.print("Welcome. Your ID = " + userID);
+		
+		out.close();
+	}
+	
 
 }

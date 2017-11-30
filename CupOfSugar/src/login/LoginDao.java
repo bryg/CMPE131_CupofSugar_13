@@ -51,6 +51,52 @@ public class LoginDao {
 		return validLogin;
 	}
 	
+	
+	public static int retrieveUserID(String name) {
+		int userID = -1;
+		try {
+			//defining database driver to use
+			Class.forName("com.mysql.jdbc.Driver");
+			
+			//getting connection from the mysql database
+			//jdbc:mysql://localhost:3306 is database url
+			//login is database name
+			//root : username
+			//root: password
+			//syntex : databaseurl/databasename, username , password
+			Connection con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/login", "root", "");
+			
+			
+
+			//prepared statement is used for secure access
+			// ? used for data to put in query
+			// actual query to execute is
+			// select * from users where username = name and password = pass
+			PreparedStatement oPrStmt = con
+					.prepareStatement("select * from users where username=?");// ? represents some parameter to include
+																							
+			oPrStmt.setString(1, name);// parameter index start from 1
+			
+			ResultSet rs = oPrStmt.executeQuery(); // executing the query and getting the resultset from databse
+			
+			//rs.next() shows that the resultset contains nect value or not
+			// for retriving multiple results, you can use while(rs.next)
+			
+			if (rs.next()) { //checking if the result next has any value?   
+				userID = rs.getInt(1);
+			}
+			
+			con.close();
+		
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
+		return userID;
+	}
+	
+	
 	// Makes new user
 	public static boolean registerNewUser(String name, String pass, String email, String homeaddr, String stateid, int cellphone, int zipcode) {
 		boolean didRegister = false;

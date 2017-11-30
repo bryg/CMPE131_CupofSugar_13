@@ -4,7 +4,7 @@ import java.text.DateFormat;
 
 public class RequestDao {
 
-	public static boolean save(String deadline, String title, String description, String pickuplocation, String dropofflocation) {
+	public static boolean save(int userID, String deadline, String title, String description, String pickuplocation, String dropofflocation) {
 		boolean isRecordInserted = false;
 		try {
 			//defining database driver to use

@@ -20,10 +20,23 @@ public class InsertRequestServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		
+		if (request.getSession().getAttribute("userID") == null) {
+			// user did not log in before accessing this page
+			out.write("You are not logged in!");
+			out.close();
+			return;
+		}
+		
+		
 		RequestDispatcher rd = request.getRequestDispatcher("request.html");
 		rd.include(request,response);
 	}
+	
+	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -36,8 +49,10 @@ public class InsertRequestServlet extends HttpServlet {
 		String strPUL=request.getParameter("pickuplocation");
 		String strDOL=request.getParameter("dropofflocation");
 		
+		int userID = ((Integer)request.getSession().getAttribute("userID")).intValue();
 		
-		if(RequestDao.save(deadline, strTitle, strDesc, strPUL, strDOL)){
+		
+		if(RequestDao.save(userID, deadline, strTitle, strDesc, strPUL, strDOL)){
 			RequestDispatcher rd=request.getRequestDispatcher("saved");
 			rd.forward(request,response);
 		}
