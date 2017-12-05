@@ -5,6 +5,10 @@
     <servlet-class>login.InsertedRequestServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>ListDao</servlet-name>
+    <servlet-class>login.ListDao</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>InsertRequestServlet</servlet-name>
     <servlet-class>login.InsertRequestServlet</servlet-class>
   </servlet>
@@ -39,6 +43,10 @@
   <servlet-mapping>
     <servlet-name>InsertedRequestServlet</servlet-name>
     <url-pattern>/saved</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListDao</servlet-name>
+    <url-pattern>/list</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

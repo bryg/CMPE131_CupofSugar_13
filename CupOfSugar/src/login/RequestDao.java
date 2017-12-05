@@ -26,13 +26,14 @@ public class RequestDao {
 			// actual query to execute is
 			// select * from users where username = name and password = pass
 			PreparedStatement oPrStmt = con
-					.prepareStatement("INSERT INTO requests (deadline, title, description, pickuplocation, dropofflocation) VALUES(?,?,?,?,?)");// ? represents some parameter to include
-																							
-			oPrStmt.setDate(1, Date.valueOf(deadline));// parameter index start from 1
-			oPrStmt.setString(2, title);
-			oPrStmt.setString(3, description);
-			oPrStmt.setString(4, pickuplocation);
-			oPrStmt.setString(5, dropofflocation);
+					.prepareStatement("INSERT INTO requests (userid, deadline, title, description, pickuplocation, dropofflocation) VALUES(?,?,?,?,?,?)");// ? represents some parameter to include
+			
+			oPrStmt.setInt(1, userID);
+			oPrStmt.setDate(2, Date.valueOf(deadline));// parameter index start from 1
+			oPrStmt.setString(3, title);
+			oPrStmt.setString(4, description);
+			oPrStmt.setString(5, pickuplocation);
+			oPrStmt.setString(6, dropofflocation);
 			
 			int nInsertedRecords = oPrStmt.executeUpdate(); // executing the query and getting the updated/inserted row counts from databse
 			
