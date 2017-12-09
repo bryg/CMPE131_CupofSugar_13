@@ -9,6 +9,10 @@
     <servlet-class>login.ListDao</servlet-class>
   </servlet>
     <servlet>
+    <servlet-name>UserHistoryDao</servlet-name>
+    <servlet-class>login.UserHistoryDao</servlet-class>
+  </servlet>
+    <servlet>
     <servlet-name>FeedbackDao</servlet-name>
     <servlet-class>login.FeedbackDao</servlet-class>
   </servlet>
@@ -67,6 +71,10 @@
   <servlet-mapping>
     <servlet-name>ListDao</servlet-name>
     <url-pattern>/list</url-pattern>
+  </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>UserHistoryDao</servlet-name>
+    <url-pattern>/userhistory</url-pattern>
   </servlet-mapping>
     <servlet-mapping>
     <servlet-name>FeedbackDao</servlet-name>

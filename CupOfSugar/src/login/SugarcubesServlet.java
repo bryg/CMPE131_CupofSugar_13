@@ -51,7 +51,7 @@ public class SugarcubesServlet extends HttpServlet{
 		
 		int userID = ((Integer)request.getSession().getAttribute("userID")).intValue();
 		System.out.println("USERID = " + userID);
-		if(SugarcubesServlet.save(requestID, userID)){
+		if(FeedbackDao.save(requestID, userID)){
 			RequestDispatcher rd=request.getRequestDispatcher("list");
 			rd.forward(request,response);
 		}
