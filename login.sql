@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
+-- Generation Time: Dec 06, 2017 at 12:27 AM
+=======
 -- Generation Time: Dec 06, 2017 at 07:39 AM
+>>>>>>> refs/remotes/origin/master
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -62,7 +66,11 @@ INSERT INTO `requests` (`id`, `userid`, `deadline`, `requesttype`, `title`, `des
 CREATE TABLE `users` (
   `id` int(15) NOT NULL,
   `username` varchar(50) NOT NULL,
+<<<<<<< HEAD
+  `rating` int(16) NOT NULL,
+=======
   `sugarcubes` int(16) NOT NULL,
+>>>>>>> refs/remotes/origin/master
   `password` varchar(50) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `homeaddr` varchar(50) NOT NULL,
@@ -77,7 +85,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
+<<<<<<< HEAD
+INSERT INTO `users` (`id`, `username`, `rating`, `password`, `email`, `homeaddr`, `stateid`, `sugartype`, `profilepic`, `cellphone`, `zipcode`) VALUES
+=======
 INSERT INTO `users` (`id`, `username`, `sugarcubes`, `password`, `email`, `homeaddr`, `stateid`, `sugartype`, `profilepic`, `cellphone`, `zipcode`) VALUES
+>>>>>>> refs/remotes/origin/master
 (1, 'divyang', 0, 'password123', NULL, '', '', 0, 0, 0, 0),
 (10, 'Bob Newbie', 0, 'Password123', 'bnewbie@hmail.com', '', '', 0, 0, 0, 0),
 (11, 'Panfilo', 0, 'qwerty', 'panfilo@mail.com', '', '', 0, 0, 0, 0),
