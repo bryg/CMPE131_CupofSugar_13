@@ -13,8 +13,10 @@ import java.sql.*;
 public class ListDao extends HttpServlet{
 	  protected void doGet(HttpServletRequest request, HttpServletResponse response)
 		      throws ServletException, IOException {
-		    response.setContentType("text/html");
+		  System.out.println("Entered ListDao");  
+		  response.setContentType("text/html");
 		    PrintWriter out = response.getWriter();
+		    
 		    out.println("<html>");
 		    out.println("<head><title>Cup of Sugar - Requests</title></head>");
 		    out.println("<body>");
@@ -34,32 +36,31 @@ public class ListDao extends HttpServlet{
 		      conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/login", "root", "");
 		      stmt = conn.createStatement();
-		      String orderBy = request.getParameter("sort");
-		      if ((orderBy == null) || orderBy.equals("")) {
-		        orderBy = "id";
-		      }
-		      String orderByDir = request.getParameter("sortdir");
-		      if ((orderByDir == null) || orderByDir.equals("")) {
-		        orderByDir = "asc";
-		      }
+		      
 		      String query = "SELECT requests.id, requests.deadline, requests.title, " + "requests.description, "
 		          + "requests.pickuplocation, requests.dropofflocation " + "FROM requests " + ";";
 		      ResultSet rs = stmt.executeQuery(query);
 		      while (rs.next()) {
 		    	int id = rs.getInt("id");
+		    	
 		        Date deadline = rs.getDate("deadline");
 		        String title = rs.getString("title");
 		        String description = rs.getString("description");
 		        String pickuplocation = rs.getString("pickuplocation");
 		        String dropofflocation = rs.getString("dropofflocation");
+		        System.out.println("id: " + id);
 		        out.println("<tr>");
 		        out.print("<td>" + deadline + "</td>");
 		        out.print("<td>" + title + "</td>");
 		        out.print("<td>" + description + "</td>");
 		        out.print("<td>" + pickuplocation + "</td>");
-		        out.print("<td>" + dropofflocation + "</td>");
-		        out.print("<td>" + "<button name=\"" + id + "\" action=\"accept request\" method=\"post\">Accept request</button>" + "</td>");
+		        out.print("<td>" + dropofflocation + id + "</td>");
+		        out.print("<td>" + "<form accept-charset=\"utf-8\" action=\"acceptrequest\" method=\"post\">" + 
+		        			"<input type=\"hidden\" name=\"ider\" value=\"" + id + "\">" + 
+		        			"<input type=\"submit\" value=\"Accept Request\" />"
+		        		+ "</form>" + "</td>");
 		        out.print("</tr>");
+
 		      }
 		      out.println("</table>");
 		    } catch (SQLException e) {
