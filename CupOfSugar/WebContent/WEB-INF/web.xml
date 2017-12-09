@@ -9,6 +9,14 @@
     <servlet-class>login.ListDao</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>AcceptRequestDao</servlet-name>
+    <servlet-class>login.AcceptRequestDao</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>AcceptRequestServlet</servlet-name>
+    <servlet-class>login.AcceptRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>InsertRequestServlet</servlet-name>
     <servlet-class>login.InsertRequestServlet</servlet-class>
   </servlet>
@@ -36,9 +44,13 @@
     <servlet-name>LoggedInServlet</servlet-name>
     <url-pattern>/loggedin</url-pattern>
   </servlet-mapping>
-    <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>InsertRequestServlet</servlet-name>
     <url-pattern>/insertrequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AcceptRequestServlet</servlet-name>
+    <url-pattern>/acceptrequest</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>InsertedRequestServlet</servlet-name>
