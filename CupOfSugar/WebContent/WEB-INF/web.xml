@@ -8,6 +8,10 @@
     <servlet-name>ListDao</servlet-name>
     <servlet-class>login.ListDao</servlet-class>
   </servlet>
+    <servlet>
+    <servlet-name>FeedbackDao</servlet-name>
+    <servlet-class>login.FeedbackDao</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>InsertRequestServlet</servlet-name>
     <servlet-class>login.InsertRequestServlet</servlet-class>

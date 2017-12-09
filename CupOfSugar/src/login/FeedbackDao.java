@@ -36,7 +36,7 @@ public class FeedbackDao extends HttpServlet{
 						"jdbc:mysql://localhost:3306/login", "root", "");
 		      stmt = conn.createStatement();
 		      String query = "SELECT requests.id, requests.userid, requests.acceptedby, requests.complete, requests.title, " + "requests.description, "
-			          + "requests.pickuplocation" + "FROM requests WHERE acceptedby <> 0 and complete = 0" + ";";// pull logic
+			          + "requests.pickuplocation" + " FROM requests WHERE acceptedby <> 0 AND complete = 0" + ";";// pull logic
 			      ResultSet rs = stmt.executeQuery(query);
 			      while (rs.next()) {
 			    	int id = rs.getInt("id");
