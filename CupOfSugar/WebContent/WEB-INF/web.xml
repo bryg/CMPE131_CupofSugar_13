@@ -68,6 +68,10 @@
     <servlet-name>FeedbackDao</servlet-name>
     <url-pattern>/feedback</url-pattern>
   </servlet-mapping>
+      <servlet-mapping>
+    <servlet-name>SugarcubesServlet</servlet-name>
+    <url-pattern>/sugarcubes</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
