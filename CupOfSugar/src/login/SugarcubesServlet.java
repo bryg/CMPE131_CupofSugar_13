@@ -63,7 +63,7 @@ public class SugarcubesServlet extends HttpServlet{
 		}
 		response.sendRedirect("ListDao");
 		out.close();
-		
+		//
 	}
 	
 	public int strToInt(String str) {
