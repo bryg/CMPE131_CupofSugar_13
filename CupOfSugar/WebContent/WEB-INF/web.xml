@@ -12,6 +12,10 @@
     <servlet-name>FeedbackDao</servlet-name>
     <servlet-class>login.FeedbackDao</servlet-class>
   </servlet>
+      <servlet>
+    <servlet-name>SugarcubesServlet</servlet-name>
+    <servlet-class>login.SugarcubesServlet</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>AcceptRequestDao</servlet-name>
     <servlet-class>login.AcceptRequestDao</servlet-class>
