@@ -50,8 +50,12 @@ public class FeedbackDao extends HttpServlet{
 			        out.print("<td>" + pickuplocation + "</td>");
 			        
 			        out.print("</tr>");
-			        out.print("<td>" + "<button name=\"" + id + "\" action=\"accept request\" method=\"post\">Accept request</button>" + "</td>");
-			      }
+			        out.print("<td>" + "<form accept-charset=\"utf-8\" action=\"acceptrequest\" method=\"post\">" + 
+		        			"<input type=\"hidden\" name=\"ider\" value=\"" + id + "\">" + 
+		        			"<input type=\"submit\" value=\"Accept Request\" />"
+		        			+ "</form>" + "</td>");
+			        out.print("</tr>");
+		        			}
 			      out.println("</table>");
 		      
 		    } catch (SQLException e) {
