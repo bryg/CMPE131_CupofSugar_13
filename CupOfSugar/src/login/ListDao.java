@@ -26,35 +26,30 @@ public class ListDao extends HttpServlet{
 		    out.println("<th>Description</th>");
 		    out.println("<th>Pick up Location</th>");
 		    out.println("<th>Drop off Location</th>");
+		    // the out.println for this section is a collection of string outputs that are headers for the table. This is simply a text string output
+		
 		    
-		    Connection conn = null;
-		    Statement stmt = null;
-		    try {
-		      Class.forName("com.mysql.jdbc.Driver");
-		      conn = DriverManager.getConnection(
-						"jdbc:mysql://localhost:3306/login", "root", "");
-		      stmt = conn.createStatement();
-		      String orderBy = request.getParameter("sort");
-		      if ((orderBy == null) || orderBy.equals("")) {
-		        orderBy = "id";
-		      }
-		      String orderByDir = request.getParameter("sortdir");
-		      if ((orderByDir == null) || orderByDir.equals("")) {
-		        orderByDir = "asc";
-		      }
+		    Connection conn = null;		// initialization variable
+		    Statement stmt = null;		// initialization variable 
+		    try {																// Try block used to catch any exceptions that may occur
+		      Class.forName("com.mysql.jdbc.Driver");							// Attempts to select an appropriate driver
+		      conn = DriverManager.getConnection(								// Attempts to establish a connection to the given database URL
+						"jdbc:mysql://localhost:3306/login", "root", "");		// Database
+		      stmt = conn.createStatement();									// Output display statement
+		      
 		      String query = "SELECT requests.id, requests.deadline, requests.title, " + "requests.description, "
 		          + "requests.pickuplocation, requests.dropofflocation " + "FROM requests " + ";";
 		      ResultSet rs = stmt.executeQuery(query);
 		      while (rs.next()) {
 		    	int id = rs.getInt("id");
 		        Date deadline = rs.getDate("deadline");
-		        String title = rs.getString("title");
+		        String title = rs.getString("title");							// Simple text display using string
 		        String description = rs.getString("description");
 		        String pickuplocation = rs.getString("pickuplocation");
 		        String dropofflocation = rs.getString("dropofflocation");
 		        out.println("<tr>");
-		        out.print("<td>" + deadline + "</td>");
-		        out.print("<td>" + title + "</td>");
+		        out.print("<td>" + deadline + "</td>");					// Dynamic listing of details for cups of sugar available on database
+		        out.print("<td>" + title + "</td>");					
 		        out.print("<td>" + description + "</td>");
 		        out.print("<td>" + pickuplocation + "</td>");
 		        out.print("<td>" + dropofflocation + "</td>");
