@@ -16,16 +16,18 @@ public class FeedbackDao extends HttpServlet{
 		    response.setContentType("text/html");
 		    PrintWriter out = response.getWriter();
 		    out.println("<html>");
-		    out.println("<head><title>Cup of Sugar - Requests</title></head>");
+		    out.println("<head><link href=\"css/bootstrap.css\" rel='stylesheet' type='text/css' />\r\n" + 
+		    		"<link href=\"css/bootstrap-form.css\" rel='stylesheet' type='text/css' />\r\n" + 
+		    		"<link href=\"https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300\" rel=\"stylesheet\"><title>Cup of Sugar - Feedback</title></head>");
 		    out.println("<body>");
-		    out.println("<center><h1>Your Cups of Sugar In Progress</h1>");
-		    out.println("<table styel=\"width:100%\">");
+		    out.println("<h1 style=\"font-family: 'Lobster', cursive;\">Your Cups of Sugar In Progress</h1>");
+		    out.println("<table class=\"table table-striped\">");
 		    out.println("<tr>");
 		    out.println("<th>Title</th>");
 		    out.println("<th>Description</th>");
 		    out.println("<th>Pick up Location</th>");
-		    out.println("<th>Completed?</th>");
-		    out.println("<th>Failed?</th></tr>");
+		    out.println("<th>Completed</th>");
+		    out.println("<th>Failed</th></tr>");
 
 		    
 		    Connection conn = null;
@@ -50,17 +52,15 @@ public class FeedbackDao extends HttpServlet{
 			        out.print("<td>" + title + "</td>");
 			        out.print("<td>" + description + "</td>");
 			        out.print("<td>" + pickuplocation + "</td>");
-			        
-			        
 			        out.print("<td>" + "<form accept-charset=\"utf-8\" action=\"sugarcubes\" method=\"post\">" +   // do 
 		        			"<input type=\"hidden\" name=\"requestID\" value=\"" + id + "\">" + 
 		        			"<input type=\"hidden\" name=\"outcome\" value=\"success\">" +
-		        			"<input type=\"submit\" value=\"Success\" />"
+		        			"<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Success</button>"
 		        			+ "</form>" + "</td>");
 			        out.print("<td>" + "<form accept-charset=\"utf-8\" action=\"sugarcubes\" method=\"post\">" +   // do 
 		        			"<input type=\"hidden\" name=\"requestID\" value=\"" + id + "\">" +
 		        			"<input type=\"hidden\" name=\"outcome\" value=\"failed\">" +
-		        			"<input type=\"submit\" value=\"Failed\" />"
+		        			"<button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Failed</button>"
 		        			+ "</form>" + "</td>");
 			        out.print("</tr>");
 		        			}

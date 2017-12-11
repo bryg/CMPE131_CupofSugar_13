@@ -20,12 +20,11 @@ public class AcceptRequestServlet extends HttpServlet{
 	String rid = "";
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Entered Accept Request Servlet doGet");
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
 		String rid = request.getParameter("ider");
-		System.out.println("rid=" + rid);
+
 		if (request.getSession().getAttribute("userID") == null) {
 			// user did not log in before accessing this page
 			out.write("You are not logged in!");
@@ -46,13 +45,13 @@ public class AcceptRequestServlet extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		rid = request.getParameter("ider");
-		System.out.println("rid = " + rid);
+
 		int requestID = strToInt(rid);
 		
 		int userID = ((Integer)request.getSession().getAttribute("userID")).intValue();
-		System.out.println("USERID = " + userID);
+
 		if(AcceptRequestDao.save(requestID, userID)){
-			response.sendRedirect("feedback");
+			response.sendRedirect("loggedin.html");
 			//RequestDispatcher rd=request.getRequestDispatcher("list");
 			//rd.forward(request,response);
 		}

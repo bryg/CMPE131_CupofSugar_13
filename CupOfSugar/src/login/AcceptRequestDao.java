@@ -15,7 +15,7 @@ public class AcceptRequestDao extends HttpServlet {
 	private static final long serialVersionUID = 6074048617638962860L;
 
 	public static boolean save(int requestID, int userID) {
-		System.out.println("Entered AcceptRequestDao");
+
 		boolean isRecordInserted = false;
 		try {
 			//defining database driver to use

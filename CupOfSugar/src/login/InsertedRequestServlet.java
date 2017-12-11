@@ -21,6 +21,7 @@ public class InsertedRequestServlet extends HttpServlet {
 		
 		String strTitle=request.getParameter("title");
 		out.print("Your request "+strTitle+" has been added successfully.");
+		response.sendRedirect("loggedin.html");
 		
 		out.close();
 	}

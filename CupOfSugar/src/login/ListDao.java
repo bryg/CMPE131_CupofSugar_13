@@ -12,22 +12,25 @@ import java.sql.*;
 
 public class ListDao extends HttpServlet{
 	  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-		      throws ServletException, IOException {
-		  System.out.println("Entered ListDao");  
+		      throws ServletException, IOException {  
 		  response.setContentType("text/html");
 		    PrintWriter out = response.getWriter();
 		    
 		    out.println("<html>");
-		    out.println("<head><title>Cup of Sugar - Requests</title></head>");
+		    out.println("<head><title>Cup of Sugar - Requests</title><meta charset=\"UTF-8\">\r\n" + 
+		    		"<link href=\"css/bootstrap.css\" rel='stylesheet' type='text/css' />\r\n" + 
+		    		"<link href=\"css/bootstrap-form.css\" rel='stylesheet' type='text/css' />\r\n" + 
+		    		"<link href=\"https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300\" rel=\"stylesheet\"></head>");
 		    out.println("<body>");
-		    out.println("<center><h1>Available Cups of Sugar</h1>");
-		    out.println("<table styel=\"width:100%\">");
+		    out.println("<h1 style=\"font-family: 'Lobster', cursive;\">Available Cups of Sugar</h1>");
+		    out.println("<table class=\"table table-striped\">");
 		    out.println("<tr>");
 		    out.println("<th>Deadline</th>");
 		    out.println("<th>Title</th>");
 		    out.println("<th>Description</th>");
 		    out.println("<th>Pick up Location</th>");
 		    out.println("<th>Drop off Location</th>");
+		    out.println("<th></th>");
 		    // the out.println for this section is a collection of string outputs that are headers for the table. This is simply a text string output
 		
 		  
@@ -50,16 +53,15 @@ public class ListDao extends HttpServlet{
 		        String description = rs.getString("description");
 		        String pickuplocation = rs.getString("pickuplocation");
 		        String dropofflocation = rs.getString("dropofflocation");
-		        System.out.println("id: " + id);
 		        out.println("<tr>");
 		        out.print("<td>" + deadline + "</td>");					// Dynamic listing of details for cups of sugar available on database
 		        out.print("<td>" + title + "</td>");					
 		        out.print("<td>" + description + "</td>");
 		        out.print("<td>" + pickuplocation + "</td>");
-		        out.print("<td>" + dropofflocation + id + "</td>");
+		        out.print("<td>" + dropofflocation + "</td>");
 		        out.print("<td>" + "<form accept-charset=\"utf-8\" action=\"acceptrequest\" method=\"post\">" + 
 		        			"<input type=\"hidden\" name=\"ider\" value=\"" + id + "\">" + 
-		        			"<input type=\"submit\" value=\"Accept Request\" />"
+		        			"<button class=\"btn btn-sm btn-primary btn-block\" type=\"submit\">Accept Request</button>"
 		        		+ "</form>" + "</td>");
 		        out.print("</tr>");
 

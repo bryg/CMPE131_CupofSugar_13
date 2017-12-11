@@ -12,20 +12,32 @@ CMPE/SE 131
 <meta charset="UTF-8">
 <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet"> 
 <title>Cup of Sugar - Login</title>
+<link href="css/bootstrap-signin.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
 </head>
 <body>
-<h1 class="title">Cup of Sugar</h1>
-<form accept-charset="utf-8" action="login" method="post">
-User Name:<input type="text" name="username"/><br/><br/>
-Password:<input type="password" name="userpass"/><br/><br/>
+<div class="container">
+	<h1 class="title" style="font-family: 'Lobster', cursive;">Cup of Sugar</h1>
+</div>
 
-<input type="submit" value="login"/>
+<div class="container">
+	<form class="form-signin" action="login" method="post">
+		<h2 class="form-signin-heading">Please sign in</h2>
+		<label class="sr-only" for="inputUsername">User name</label>
+		<input name="username" id="inputUsername" class="form-control" placeholder="User name" required="" autofocus="" type="text">
+		<label class="sr-only" for="inputPassword">Password</label>
+		<input name="userpass" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+		
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	</form>
+</div>
 
-</form>
-
-<form action="signup" method="get">
-    <input type="submit" value="Sign up" />
-</form>
+<div class="container">
+	<form class="form-signin" action="signup" method="get">
+	    <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign up</button>
+	</form>
+</div>
 
 </body>
 </html>

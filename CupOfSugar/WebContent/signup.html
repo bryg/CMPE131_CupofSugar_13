@@ -2,10 +2,10 @@
 <html>	
 <head>
 <title>Cup of Sugar - Registration</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<meta name="keywords" content="Cofrestru Registration Form Responsive Templates, Iphone Widget Template, Smartphone login forms,Login form, Widget Template, Responsive Templates, a Ipad 404 Templates, Flat Responsive Templates" />
-<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap-form.css" rel='stylesheet' type='text/css' />
 <!--webfonts-->
 <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300" rel="stylesheet"> 
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:700,300,600,800,400' rel='stylesheet' type='text/css'>
@@ -13,28 +13,22 @@
 <!--//webfonts-->
 </head>
 <body>
-	<h1 id='signupTitle'>Cup of Sugar Registration</h1>
-		<div class="registration">			
-					<form action="signup" method="post">
+	<div class="container">
+		<h1 class="form-signup-heading" style="font-family: 'Lobster', cursive;">Cup of Sugar Registration</h1>
+	</div>
+		<div class="container">			
+					<form class="form-signup" action="signup" method="post">
 						<div class="form-info">
-							User Name: <br>
-							<input type="text" class="text" name="username">
-							Email: <br>
-							<input type="text" class="text" name="email">
-							Password: <br>
-							<input type="password" name="password">
-							Cell Phone:<br>
-							<input type="text" class="text" name="cellphone">
-							Home Address:<br>
-							<input type="text" class="text" name="homeaddr">
-							Zip Code:<br>
-							<input type="number" class="text" name="zipcode" >
-							State ID:<br>
-							<input type="text" class="text" name="stateid" >		
+							<input type="text" class="form-control" name="username" placeholder="User name" required="" autofocus="" >
+							<input type="text" class="form-control" name="email" placeholder="Email" required="" autofocus="" >
+							<input type="password" class="form-control" name="password" placeholder="Password" required="" autofocus="" >
+							<input type="text" class="form-control" name="cellphone" placeholder="Cellphone" required="" autofocus="" >
+							<input type="text" class="form-control" name="homeaddr" placeholder="Home Address" required="" autofocus="" >
+							<input type="number" class="form-control" name="zipcode" placeholder="Zip code" required="" autofocus="" >
+							<input type="text" class="form-control" name="stateid" placeholder="State ID" required="" autofocus="" >		
 						</div>
-					    <input type="submit" value="signup">
+					    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 					</form>
-							<div class="clear"> </div>
 		</div>
 </body>
 </html>
