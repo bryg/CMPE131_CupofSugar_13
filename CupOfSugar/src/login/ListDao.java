@@ -40,7 +40,7 @@ public class ListDao extends HttpServlet{
 		      stmt = conn.createStatement();									// Output display statement
 		      
 		      String query = "SELECT requests.id, requests.deadline, requests.title, " + "requests.description, "
-		          + "requests.pickuplocation, requests.dropofflocation " + "FROM requests " + ";";
+		          + "requests.pickuplocation, requests.dropofflocation " + "FROM requests " + " WHERE acceptedby=0 AND complete=0;";
 		      ResultSet rs = stmt.executeQuery(query);
 		      while (rs.next()) {
 		    	int id = rs.getInt("id");

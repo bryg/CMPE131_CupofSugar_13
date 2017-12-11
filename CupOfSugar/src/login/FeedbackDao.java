@@ -18,25 +18,27 @@ public class FeedbackDao extends HttpServlet{
 		    out.println("<html>");
 		    out.println("<head><title>Cup of Sugar - Requests</title></head>");
 		    out.println("<body>");
-		    out.println("<center><h1>Available Cups of Sugar</h1>");
+		    out.println("<center><h1>Your Cups of Sugar In Progress</h1>");
 		    out.println("<table styel=\"width:100%\">");
 		    out.println("<tr>");
 		    out.println("<th>Title</th>");
 		    out.println("<th>Description</th>");
 		    out.println("<th>Pick up Location</th>");
-		    out.println("<th>Completed?");
-		    out.println("<th>Failed?");
+		    out.println("<th>Completed?</th>");
+		    out.println("<th>Failed?</th></tr>");
 
 		    
 		    Connection conn = null;
 		    Statement stmt = null;
 		    try {
-		      Class.forName("com.mysql.jdbc.Driver");
+		      
+		    	int userID = ((Integer)request.getSession().getAttribute("userID")).intValue();	
+		    	Class.forName("com.mysql.jdbc.Driver");
 		      conn = DriverManager.getConnection(
 						"jdbc:mysql://localhost:3306/login", "root", "");
 		      stmt = conn.createStatement();
 		      String query = "SELECT requests.id, requests.userid, requests.acceptedby, requests.complete, requests.title, " + "requests.description, "
-			          + "requests.pickuplocation" + " FROM requests WHERE acceptedby <> 0 AND complete = 0" + ";";// pull logic
+			          + "requests.pickuplocation" + " FROM requests WHERE acceptedby <> 0 AND complete = 0 AND userid =" + userID + ";";// pull logic
 			      ResultSet rs = stmt.executeQuery(query);
 			      while (rs.next()) {
 			    	int id = rs.getInt("id");
@@ -49,14 +51,15 @@ public class FeedbackDao extends HttpServlet{
 			        out.print("<td>" + description + "</td>");
 			        out.print("<td>" + pickuplocation + "</td>");
 			        
-			        out.print("</tr>");
+			        
 			        out.print("<td>" + "<form accept-charset=\"utf-8\" action=\"sugarcubes\" method=\"post\">" +   // do 
-		        			"<input type=\"hidden\" name=\"success\" value=\"" + id + "\">" + 
+		        			"<input type=\"hidden\" name=\"requestID\" value=\"" + id + "\">" + 
+		        			"<input type=\"hidden\" name=\"outcome\" value=\"success\">" +
 		        			"<input type=\"submit\" value=\"Success\" />"
 		        			+ "</form>" + "</td>");
-			        out.print("</tr>");
 			        out.print("<td>" + "<form accept-charset=\"utf-8\" action=\"sugarcubes\" method=\"post\">" +   // do 
-		        			"<input type=\"hidden\" name=\"failed\" value=\"" + id + "\">" + 
+		        			"<input type=\"hidden\" name=\"requestID\" value=\"" + id + "\">" +
+		        			"<input type=\"hidden\" name=\"outcome\" value=\"failed\">" +
 		        			"<input type=\"submit\" value=\"Failed\" />"
 		        			+ "</form>" + "</td>");
 			        out.print("</tr>");

@@ -52,15 +52,16 @@ public class AcceptRequestServlet extends HttpServlet{
 		int userID = ((Integer)request.getSession().getAttribute("userID")).intValue();
 		System.out.println("USERID = " + userID);
 		if(AcceptRequestDao.save(requestID, userID)){
-			RequestDispatcher rd=request.getRequestDispatcher("list");
-			rd.forward(request,response);
+			response.sendRedirect("feedback");
+			//RequestDispatcher rd=request.getRequestDispatcher("list");
+			//rd.forward(request,response);
 		}
 		else{
 			out.print("Error occured while saving data.");
 			RequestDispatcher rd=request.getRequestDispatcher("list");
 			rd.include(request,response);
 		}
-		response.sendRedirect("ListDao");
+		//response.sendRedirect("ListDao");
 		out.close();
 		
 	}
