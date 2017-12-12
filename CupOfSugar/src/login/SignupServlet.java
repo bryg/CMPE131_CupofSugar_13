@@ -35,7 +35,7 @@ public class SignupServlet extends HttpServlet {
 		
 		
 		if(LoginDao.registerNewUser(n, p, email, homeaddr, stateid, cell, zipcode)){
-			RequestDispatcher rd=request.getRequestDispatcher("loggedin.html");
+			RequestDispatcher rd=request.getRequestDispatcher("index.html");
 			rd.forward(request,response);
 		}
 		else {
