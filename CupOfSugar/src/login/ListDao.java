@@ -22,7 +22,7 @@ public class ListDao extends HttpServlet{
 		    		"<link href=\"css/bootstrap-form.css\" rel='stylesheet' type='text/css' />\r\n" + 
 		    		"<link href=\"https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300\" rel=\"stylesheet\"></head>");
 		    out.println("<body>");
-		    out.println("<h1 style=\"font-family: 'Lobster', cursive;\">Available Cups of Sugar</h1>");
+		    out.println("<h1 style=\"font-family: 'Lobster', cursive; color:#007bff;\">Available Cups of Sugar</h1>");
 		    out.println("<table class=\"table table-striped\">");
 		    out.println("<tr>");
 		    out.println("<th>Deadline</th>");

@@ -20,7 +20,7 @@ public class FeedbackDao extends HttpServlet{
 		    		"<link href=\"css/bootstrap-form.css\" rel='stylesheet' type='text/css' />\r\n" + 
 		    		"<link href=\"https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300\" rel=\"stylesheet\"><title>Cup of Sugar - Feedback</title></head>");
 		    out.println("<body>");
-		    out.println("<h1 style=\"font-family: 'Lobster', cursive;\">Your Cups of Sugar In Progress</h1>");
+		    out.println("<h1 style=\"font-family: 'Lobster', cursive; color:#007bff;\">Your Cups of Sugar In Progress</h1>");
 		    out.println("<table class=\"table table-striped\">");
 		    out.println("<tr>");
 		    out.println("<th>Title</th>");

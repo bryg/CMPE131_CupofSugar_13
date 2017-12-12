@@ -27,8 +27,8 @@ public class UserHistoryDao extends HttpServlet{
 		    		"<link href=\"css/bootstrap-form.css\" rel='stylesheet' type='text/css' />\r\n" + 
 		    		"<link href=\"https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300\" rel=\"stylesheet\"> </head>");
 		    out.println("<body>");
-		    out.println("<h1 style=\"font-family: 'Lobster', cursive;\">Cup of Sugar User History</h1>");
-		    out.println("<h2 style=\"font-family: 'Lobster', cursive;\">Your Cups of Sugar</h2>");
+		    out.println("<h1 style=\"font-family: 'Lobster', cursive; color:#007bff;\">Cup of Sugar User History</h1>");
+		    out.println("<h2 style=\"font-family: 'Lobster', cursive; color:#0069d9;\">Your Cups of Sugar</h2>");
 		    out.println("<table class=\"table table-striped\">");
 		    out.println("<tr>");
 		    out.println("<th>Deadline</th>");
@@ -80,7 +80,7 @@ public class UserHistoryDao extends HttpServlet{
 		      out.println("</table>");
 		      
 		      // Requests User has accepted
-		      out.println("<h2 style=\"font-family: 'Lobster', cursive;\">Cups of Sugar You've Accepted</h2>");
+		      out.println("<h2 style=\"font-family: 'Lobster', cursive; color:#0069d9;\">Cups of Sugar You've Accepted</h2>");
 			    out.println("<table class=\"table table-striped\">");
 			    out.println("<tr>");
 			    out.println("<th>Deadline</th>");
